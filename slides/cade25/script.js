@@ -1,0 +1,183 @@
+let {view, move, fade_in, fade_out, toggle_logo, invert, change_view, start, align_vertically, align_horizontally, set_color} = window.preji;
+
+var title = view("title").set_scale(1.1);
+var svg = view("svg");
+
+var bmc = view("bmc").set_scale(1.1);
+var detecting = view("detecting").set_scale(1.1);
+var learn = view("learn").set_scale(1.1);
+var what = view("what").set_scale(1.1);
+var practice = view("practice").set_scale(1.1);
+var eval = view("eval").set_scale(1.1);
+var conclusion = view("conclusion").set_scale(1.1);
+
+var slides = [
+    [
+        fade_out([
+            "bmc",
+            "indicator",
+            "indicator1",
+            "indicator2",
+            "indicator3",
+            "indicator4",
+            "smt",
+            "smt1",
+            "smt1-exp",
+            "smt2",
+            "smt3",
+            "smt3-exp",
+            "smt4",
+            "smt5",
+            "smt6",
+            "loops",
+            "detecting",
+            "detecting-alg1",
+            "detecting-alg2",
+            "detecting-alg-inv",
+            "detecting-alg-ti",
+            "detecting-alg-ti2",
+            "detect-ex",
+            "detect-ex1",
+            "learn",
+            "learn-ex",
+            "learn-ex1",
+            "learn-ex2",
+            "learn-ex3",
+            "learn-ex4",
+            "learn-ex5",
+            "anchor",
+            "anchor0",
+            "anchor1",
+            "tp1",
+            "tp2",
+            "tp3",
+            "tp4-1",
+            "tp4-2",
+            "tp5",
+            "tp6",
+            "what",
+            "what2",
+            "what3",
+            "what6",
+            "what5",
+            "what-ex",
+            "what-ex2",
+            "what-ex3",
+            "what-ex4",
+            "what-ex5",
+            "practice",
+            "indicator-trl",
+            "indicator-trans",
+            "indicator-learn",
+            "indicator-block",
+            "indicator-check",
+            "trl-smt",
+            "smt-trl2",
+            "smt-trl3",
+            "trl-learned",
+            "eval",
+            "conclusion",
+            "conclusion1",
+            "conclusion2",
+            "conclusion3",
+            "conclusion35",
+            "conclusion4",
+            "graph-huge",
+        ], duration=0),
+    ],
+    [change_view(title, delay=0, slowdown=0)],
+
+    [change_view(svg)],
+
+    [change_view(bmc), fade_in(["bmc"])],
+    [fade_in(["indicator"])],
+    [fade_in(["smt", "smt1-exp"])],
+    [fade_out(["smt1-exp"], val=0, duration=1000), fade_in(["smt1"], duration=1000, delay=750)],
+    [move("indicator", "indicator2", "indicator2")],
+    [fade_in(["smt2"])],
+    [move("indicator", "indicator3", "indicator3")],
+    [fade_in(["smt3-exp"])],
+    [fade_out(["smt3-exp"], val=0, duration=1000), fade_in(["smt3"], duration=1000, delay=750)],
+    [move("indicator", "indicator4", "indicator4")],
+    [move("indicator", "indicator2", "indicator2")],
+    [fade_in(["smt4"])],
+    [move("indicator", "indicator3", "indicator3")],
+    [fade_in(["smt5"])],
+    [move("indicator", "indicator4", "indicator4")],
+    [move("indicator", "indicator2", "indicator2")],
+    [fade_in(["smt6"])],
+    [fade_in(["loops"])],
+
+    [change_view(svg)],
+
+    [change_view(detecting), fade_in(["detecting"])],
+    [fade_out(["detecting-alg0"], val=0, duration=1000), fade_in(["detecting-alg1"], duration=1000, delay=750)],
+    [fade_in(["detect-ex"])],
+    [fade_in(["detect-ex1"])],
+    [fade_in(["graph-huge"])],
+    [fade_out(["graph-huge"])],
+    [fade_out(["detecting-alg1"], val=0, duration=1000), fade_in(["detecting-alg-inv"], duration=1000, delay=750)],
+    [fade_out(["detecting-alg-inv"], val=0, duration=1000), fade_in(["detecting-alg-ti"], duration=1000, delay=750)],
+    [fade_out(["detecting-alg-ti"], val=0, duration=1000), fade_in(["detecting-alg-ti2"], duration=1000, delay=750)],
+    [fade_out(["detecting-alg-ti2"], val=0, duration=1000), fade_in(["detecting-alg2"], duration=1000, delay=750)],
+
+    [change_view(svg)],
+
+    [change_view(learn), fade_in(["learn"])],
+    [fade_in(["tp1"])],
+    [fade_in(["learn-ex", "learn-ex1"])],
+    [fade_in(["tp2"])],
+    [fade_in(["learn-ex2"])],
+    [fade_in(["tp3"])],
+    [move("learn-ex3", "anchor", "anchor", 0), move("learn-ex1", "anchor0", "anchor0"), move("learn-ex2", "anchor1", "anchor1")],
+    [fade_in(["learn-ex3"])],
+    [fade_in(["tp4-1"])],
+    [move("learn-ex4", "anchor", "anchor", 0), fade_out(["learn-ex2"]), move("learn-ex3", "anchor1", "anchor1")],
+    [fade_in(["learn-ex4"])],
+    [fade_in(["tp4-2"])],
+    [fade_in(["tp5"])],
+    [fade_in(["tp6"])],
+    [move("learn-ex5", "anchor", "anchor", 0), fade_out(["learn-ex3"]), move("learn-ex4", "anchor1", "anchor1")],
+    [fade_in(["learn-ex5"])],
+    [fade_out(["learn-ex4"]), move("learn-ex5", "anchor1", "anchor1")],
+
+    [change_view(svg)],
+
+    [change_view(what), fade_in(["what"])],
+    [fade_out(["what1"], val=0, duration=1000), fade_in(["what2"], duration=1000, delay=750)],
+    [fade_out(["what2"], val=0, duration=1000), fade_in(["what3"], duration=1000, delay=750)],
+    [fade_in(["what-ex"])],
+    [fade_in(["what-ex2"])],
+    [fade_in(["what-ex3"])],
+    [fade_out(["what3", "what-ex3"], val=0, duration=1000), fade_in(["what5"], duration=1000, delay=750)],
+    [fade_in(["what-ex4"])],
+    [fade_out(["what-ex4"], val=0, duration=1000), fade_in(["what-ex5"], duration=1000, delay=750)],
+    [fade_out(["what5", "what-ex"], val=0, duration=1000), fade_in(["what6"], duration=1000, delay=750)],
+
+    [change_view(svg)],
+
+    [change_view(practice), fade_in(["practice"])],
+    [fade_in(["indicator-trl"])],
+    [fade_in(["trl-smt"])],
+    [move("indicator-trl", "indicator-learn", "indicator-learn")],
+    [fade_in(["trl-learned"])],
+    [move("indicator-trl", "indicator-block", "indicator-block")],
+    [fade_in(["smt-trl2"])],
+    [fade_in(["smt-trl3"])],
+    [move("indicator-trl", "indicator-check", "indicator-check")],
+
+    [change_view(svg)],
+
+    [change_view(eval), fade_in(["eval"])],
+
+    [change_view(svg)],
+
+    [change_view(conclusion), fade_in(["conclusion", "conclusion1", "conclusion2", "conclusion3"])],
+    [fade_in(["conclusion35"])],
+    [fade_in(["conclusion4"])],
+
+    [change_view(svg)],
+];
+
+// start the presentation
+start(slides);
